@@ -3,7 +3,6 @@ package com.franmondey.soundphone;
 // TODO: 18/06/2015 Mantener Lista de Sets Bajados para no repetir (borrar luego de mucho tiempo)
 // TODO: 18/06/2015 Search of individual tracks to download
 
-import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -13,8 +12,10 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,7 +30,6 @@ import com.franmondey.soundphone.model.beans.Collection;
 import com.franmondey.soundphone.model.beans.FetchSetsResult;
 import com.magnet.android.mms.MagnetMobileClient;
 import com.magnet.android.mms.async.Call;
-import com.magnet.android.mms.async.StateChangedHandler;
 import com.magnet.android.mms.async.StateChangedListener;
 import com.magnet.android.mms.exception.SchemaException;
 
@@ -38,7 +38,7 @@ import java.io.File;
 import java.util.List;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     private final String LOG_TAG = MainActivity.class.getSimpleName();
 
@@ -67,8 +67,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-
         setContentView(R.layout.activity_main);
 
         downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
@@ -83,8 +81,10 @@ public class MainActivity extends Activity {
             }
         };
 
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        //mRecyclerView.setHasFixedSize(false);
+        setSupportActionBar(mToolbar);
+        mRecyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
@@ -97,10 +97,10 @@ public class MainActivity extends Activity {
             SoundApiFactory restFactory = new SoundApiFactory(magnetClient);
             SoundApi restController  = restFactory.obtainInstance();
 
-            Call g =  restController.fetchSets("50", "your auth TOKEN. ex: 1-38435-3000118-73200172126f26e8", "json", "200", new StateChangedListener() {
+            Call g =  restController.fetchSets("50", "1-37435-3000117-83200182126f26e7", "json", "200", new StateChangedListener() {
                 @Override
                 public void onExecuting(Call<?> call, ProgressData progressData) {
-                    //Log.d("APP", "Haciendo: " + call.toString());
+
                 }
 
                 @Override
@@ -135,6 +135,8 @@ public class MainActivity extends Activity {
                 @Override
                 public void onError(Call<?> call, Throwable throwable) {
                     Log.d("SoundPhone", "A la b: " + call.toString() + " " + throwable.toString());
+                    Toast.makeText(context, "Check your Internet Connection",
+                            Toast.LENGTH_LONG).show();
                 }
             });
 

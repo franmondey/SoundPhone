@@ -7,9 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.franmondey.soundphone.R;
 import com.franmondey.soundphone.model.beans.Collection;
-import com.squareup.picasso.Picasso;
 import java.util.List;
 
 // TODO: 18/06/2015 Seleccionar los Sets a mano
@@ -45,9 +45,15 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<FeedListRowHolder> {
     public void onBindViewHolder(FeedListRowHolder feedListRowHolder, int i) {
         Collection feedItem = value.get(i);
 
-        Picasso.with(mContext).load(feedItem.getTrack().getArtwork_url())
-                .error(R.drawable.placeholder)
+        Glide.with(mContext)
+                .load(feedItem.getTrack().getArtwork_url())
+                .centerCrop()
+                .placeholder(R.drawable.placeholder)
+                .crossFade()
                 .into(feedListRowHolder.thumbnail);
+        /*Picasso.with(mContext).load(feedItem.getTrack().getArtwork_url())
+                .error(R.drawable.placeholder)
+                .into(feedListRowHolder.thumbnail);*/
 
         feedListRowHolder.track.setText(feedItem.getTrack().getTitle());
         feedListRowHolder.artist.setText(feedItem.getUser().getUsername());

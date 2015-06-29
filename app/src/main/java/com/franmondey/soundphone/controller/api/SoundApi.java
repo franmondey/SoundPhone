@@ -13,7 +13,7 @@ import com.franmondey.soundphone.model.beans.*;
 public interface SoundApi {
 
   /**
-   * Generated from URL GET https://api.soundcloud.com/e1/me/stream?limit=50&oauth_token=*************&format=json&_status_code_map%5B302%5D=200
+   * Generated from URL GET https://api.soundcloud.com/e1/me/stream?limit=50&oauth_token=1-37435-3000117-83200182126f26e7&format=json&_status_code_map%5B302%5D=200
    * GET e1/me/stream
    * @param limit  style:QUERY
    * @param oauth_token  style:QUERY
