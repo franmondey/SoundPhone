@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SoundPhone</string>
+    <string name="action_settings">Settings</string>
+    <string name="button">Connect Soundcloud</string>
+    <string name="soundcloudActivity">Soundcloud Activity</string>
+    <string name="download">Download</string>
+
+</resources>
