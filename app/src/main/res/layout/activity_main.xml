@@ -3,36 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="?android:attr/selectableItemBackground"
+    tools:context=".MainActivity"
+    >
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:focusable="false"
         android:minHeight="?android:attr/actionBarSize"
-        android:background="?android:attr/colorPrimary">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        </RelativeLayout>
-
+        app:theme="@style/ToolbarTheme">
     </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/recycler_view"/>
-        <!--app:recyclerviewClipToPadding="true"
-        app:recyclerviewFloatingActionView="@layout/floating_view"
-        app:recyclerviewScrollbars="vertical"
-        android:layout_marginTop="?attr/actionBarSize"
-        app:recyclerviewDefaultSwipeColor="@array/google_colors"-->
+        android:id="@+id/recycler_view"
+        android:layout_below="@+id/toolbar"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="true"/>
 
 </RelativeLayout>

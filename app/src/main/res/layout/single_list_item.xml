@@ -7,14 +7,17 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/single_list_item">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/thumbnail"
             android:minHeight="64dp"
-            android:minWidth="64dp" />
+            android:minWidth="64dp"
+            android:maxHeight="64dp"
+            android:maxWidth="64dp" />
 
         <LinearLayout
             android:orientation="vertical"

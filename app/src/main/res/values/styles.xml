@@ -1,16 +1,27 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="MyTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- Set theme colors from http://www.google.com/design/spec/style/color.html#color-color-palette-->
         <!-- colorPrimary is used for the default action bar background -->
-        <item name="android:colorPrimary">#2196F3</item>
+        <item name="android:colorPrimary">#1064D1</item>
         <!-- colorPrimaryDark is used for the status bar -->
-        <item name="android:colorPrimaryDark">#1976D2</item>
+        <item name="android:colorPrimaryDark">#1564B1</item>
         <!-- colorAccent is used as the default value for colorControlActivated
              which is used to tint widgets -->
-        <item name="android:colorAccent">#FF4081</item>
+        <item name="android:colorAccent">#555555</item>
         <!-- You can also set colorControlNormal, colorControlActivated
              colorControlHighlight and colorSwitchThumbNormal. -->
+        <item name="android:textColorPrimary">#FFFFFF</item>
+    </style>
+
+
+    <style name="ToolbarTheme" parent="MyTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:background">#1064D1</item>
+        <item name="actionMenuTextColor">@color/accent_material_light</item>
+        <item name="android:textColorSecondary">#FFFFFF</item>
+        <item name="android:layout_gravity">center_horizontal</item>
     </style>
 </resources>

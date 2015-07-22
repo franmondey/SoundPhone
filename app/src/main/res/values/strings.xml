@@ -4,5 +4,6 @@
     <string name="button">Connect Soundcloud</string>
     <string name="soundcloudActivity">Soundcloud Activity</string>
     <string name="download">Download</string>
+    <string name="selected_count">0</string>
 
 </resources>
